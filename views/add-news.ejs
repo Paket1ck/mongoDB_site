@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add News</title>
+    <link rel="stylesheet" href="../css/add-news.css">
+</head>
+<body>
+    <% if (session.user && session.user.role === 'admin') { %>
+        <div class="form">
+            <h1>Добавить новость</h1>
+        <form method="POST" action="/dashboard/add-news" enctype="multipart/form-data">
+            <label for="title">Заголовок:</label>
+            <input type="text" name="title" required>
+            <br>
+
+            <label for="category">Категория:</label>
+            <input type="text" name="category" required>
+            <br>
+
+            <label for="description">Описание:</label>
+            <textarea name="description" rows="5"></textarea>
+            <br>
+            
+            <label for="poster">Постер:</label>
+            <input type="file" name="poster" id="poster" />
+            <br>
+
+            <button type="submit">Добавить новость</button>
+        </form>
+
+        <div class="popup-overlay">
+            <div class="popup">
+                <h2>Новость добавлена в базу данных!</h2>
+                <button class="close">Закрыть</button>
+            </div>
+        </div>
+        </div>
+        <% } else { %>
+            <div class="form">
+                <h1>Добавить новость</h1>
+            <form method="POST" action="/dashboard/add-news" enctype="multipart/form-data">
+                <label for="title">Заголовок:</label>
+                <input type="text" name="title" required>
+                <br>
+    
+                <label for="category">Категория:</label>
+                <input type="text" name="category" required>
+                <br>
+    
+                <label for="description">Описание:</label>
+                <textarea name="description" rows="5"></textarea>
+                <br>
+                
+                <label for="poster">Постер:</label>
+                <input type="file" name="poster" id="poster" />
+                <br>
+    
+                <button type="submit">Добавить новость</button>
+            </form>
+    
+            <div class="popup-overlay">
+                <div class="popup">
+                    <h2>Новость добавлена в базу данных!</h2>
+                    <button class="close">Закрыть</button>
+                </div>
+            </div>
+            </div> 
+        <% } %>
+
+        <script>
+            const form = document.querySelector('#news-form');
+            const popupOverlay = document.querySelector('.popup-overlay');
+            const closeButton = document.querySelector('.close');
+
+            form.addEventListener('sumbit', function (e) {
+                e.preventDefault();
+
+                const formData = new formData(form);
+
+                fetch('/dahsboard/add-news', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(responce => responce.json())
+                .then(data => {
+                    if (data.message) {
+                        popupOverlay.style.display = 'block';
+                    }
+                })
+                .catch(error => console.error(error));
+            });
+
+            closeButton.addEventListener('click', function () {
+                popupOverlay.style.display = 'none';
+                location.reload();
+            })
+        </script>
+</body>
+</html>

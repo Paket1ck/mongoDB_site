@@ -1,0 +1,70 @@
+body {
+    background-image: url(../img/wow1.jpg);
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: sans-serif;
+}
+
+.form {
+    margin: 15px 40px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, .7);
+    width: 1000px;
+    height: 600px;
+    border-radius: 5%;
+}
+
+.form h1 {
+    margin: 30px 100px;
+    padding: 0;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.form p {
+    margin: 30px 100px;
+    padding: 0;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.avatar img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border-radius: 30%;
+}
+
+.avatar p {
+    margin: 10px 100px;
+    padding: 0;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.avatar button {
+    margin: 150px;
+}
+.poster img{
+    padding: 220px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}

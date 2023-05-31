@@ -1,0 +1,43 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Node Js App</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Главная страница</a>
+        <% if (session.isAuthenticated) { %>
+            <a href="/logout">Выход</a>
+            <a href="/dashboard">Пользователь</a>
+        <% } else { %>
+            <a href="/login">Вход</a>
+            <a href="/register">Регистрация</a>
+        <% } %>
+    </nav>
+    
+    <h1>Главная страница</h1>
+    <p>Добро пожаловать на главную страницу!</p>
+</body>
+</html> -->
+
+<nav class="ubea-nav" role="navigation">
+    <div class="ubea-container">
+        <div class="row">
+            <div class="col-sm-2 col-xs-12">
+                <div id="ubea-logo"><a href="index.html">uBeasa <em>.</em></a></div>
+            </div>
+            <div class="col-xs-10 text-right menu-1 main-nav">
+                <ul>
+                    <li class="active"><a href="#" data-nav-section="home">Home</a></li>
+                    <li><a href="#" data-nav-section="services">Services</a></li>
+                    <li><a href="#" data-nav-section="portfolio">News</a></li>
+                    <li><a href="#" data-nav-section="about">About us</a></li>
+                    <li><a href="#" data-nav-section="contact">Contact</a></li>
+                    <li><a href="/dashboard" class="external">User</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+</nav>
